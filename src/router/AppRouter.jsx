@@ -5,6 +5,7 @@ import Home from '../pages/home/Home'
 import About from '../pages/about/About'
 import Login from '../pages/login/Login'
 import Details from '../pages/details/Details'
+import Footer from '../components/footer/Footer'
 
 
 const AppRouter = () => {
@@ -22,8 +23,8 @@ const AppRouter = () => {
 
 
 
-
-      </BrowserRouter>
+    <Footer/>
+    </BrowserRouter>
     
   )
 }
