@@ -1,35 +1,44 @@
-import React from 'react'
-import {FormContainer, Header, LoginContainer, StyledButton, StyledForm, StyledImg, StyledInput} from"./LoginStyles"
-import  meal from '../../assets/meal.svg'
-
+import React from "react";
+import {
+  FormContainer,
+  Header,
+  LoginContainer,
+  StyledButton,
+  StyledForm,
+  StyledImg,
+  StyledInput,
+} from "./LoginStyles";
+import mealSvg from "../../assets/meal.svg";
+// import { useNavigate } from "react-router-dom";
 const Login = () => {
-  const user={
-    username:"user"
-  }
-  const siteGir =(e)=>{
-    e.preventDefault();
-    sessionStorage.setItem("user", JSON.stringify(user))
-    window.location.href="/home";
-  }
+  // const navigate = useNavigate();
+  const user = {
+    username: "user",
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    sessionStorage.setItem("user", JSON.stringify(user));
 
-
+    window.location.href = "/home";
+    // veri göndermeyeceksek bu şekilde sayfaya yönlendirebiliriz
+  };
 
   return (
-   <LoginContainer>
-     <FormContainer>
-       <StyledImg src={meal}/>
-       <Header>{"<Toprak>"}</Header>
-       <StyledForm onSubmit={siteGir}>
-         <StyledInput type="text" placeholder='username' required/>
-         <StyledInput type="password" placeholder='password' required/>
-         <StyledButton type="submit">Login</StyledButton>
+    <LoginContainer>
+      <FormContainer>
+        <StyledImg src={mealSvg} />
+        <Header>{"<Toprak/>"}Recipe</Header>
+        {/* login sayfasındaki yuvarlak olayın içindeki yazı (Header) */}
 
+        <StyledForm onSubmit={handleSubmit}>
+          {/* 3 kutunun olduğu form  */}
+          <StyledInput type="text" placeholder="username" required />
+          <StyledInput type="password" placeholder="password" required />
+          <StyledButton type="submit">Login</StyledButton>
+        </StyledForm>
+      </FormContainer>
+    </LoginContainer>
+  );
+};
 
-       </StyledForm>
-     </FormContainer>
-
-   </LoginContainer>
-  )
-}
-
-export default Login
+export default Login;
