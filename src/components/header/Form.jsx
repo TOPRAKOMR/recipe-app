@@ -2,8 +2,16 @@ import React from 'react'
 import { Button, FoodInput, FormContainer, Select } from './HeaderStyles'
 
 const Form = ({setQuery,setMeal,getData,mealTypes}) => {
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        getData();
+
+
+    }
+
+
   return (
-    <FormContainer>
+    <FormContainer onSubmit={handleSubmit}>
         <FoodInput type="text"placeholder='Search'
         onChange={(e)=>setQuery(e.target.value)}/>
         <Button type='submit'>Search</Button>

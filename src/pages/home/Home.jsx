@@ -2,6 +2,10 @@ import axios from 'axios'
 import React from 'react'
 import Header from "../../components/header/Header"
 import { useState } from 'react'
+import homeSvg from "../../assets/home.svg"
+import { MainContainer,ImgDiv,HomeImg } from './HomeStyles'
+import RecipeCardComp from"./RecipeCardComp"
+
 
 const APP_ID="6b009311"
 const APP_KEY="fa07e7fb32f4d3040281e08dfcd40d16"
@@ -36,6 +40,19 @@ const Home = () => {
         setMeal={setMeal}
         
         />
+
+        {food?(<MainContainer>
+            {food.map((liste,index)=>
+            <RecipeCardComp key={index} recipe1={liste.recipe}/>
+            )}
+
+
+        </MainContainer>
+        ):<ImgDiv>
+        <HomeImg src={homeSvg}/>
+        </ImgDiv>
+        
+        }
 
 
 
